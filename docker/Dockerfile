@@ -22,8 +22,18 @@ RUN pip install --no-cache-dir mmcv-full==1.3.17 -f https://download.openmmlab.c
 
 # Install MMDetection
 RUN conda clean --all
-RUN git clone https://github.com/open-mmlab/mmdetection.git /mmdetection
-WORKDIR /mmdetection
 ENV FORCE_CUDA="1"
-RUN pip install --no-cache-dir -r requirements/build.txt
-RUN pip install --no-cache-dir -e .
+RUN pip install cython
+RUN pip install numpy
+RUN pip install matplotlib
+RUN pip install numpy
+RUN pip install pycocotools
+RUN pip install scipy
+RUN pip install six
+RUN pip install terminaltables
+RUN pip install opencv-python
+
+RUN apt install sudo
+RUN apt install unzip
+RUN apt install nano
+RUN export PYTHONPATH="/Project/mmdetection_6nhpt/"
